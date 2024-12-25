@@ -1,0 +1,4 @@
+{
+  "extends": "@ecom/config/typescript/base.json"
+}
+

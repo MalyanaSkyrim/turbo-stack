@@ -1,0 +1,34 @@
+{
+  "name": "ecom-project",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "spell": "yarn cspell lint --no-progress --relative",
+    "typecheck": "turbo typecheck",
+    "postinstall": "yarn manypkg check",
+    "check:prettier": "yarn prettier -c .",
+    "clean": "find . -name node_modules -o -name build -o -name .next -o -name .turbo -o -name dist -o -name .docusaurus -o -name generated -type d -prune | xargs rm -rf"
+  },
+  "devDependencies": {
+    "@cspell/dict-fr-fr": "^2.2.5",
+    "@ecom/config": "*",
+    "@manypkg/cli": "^0.23.0",
+    "cspell": "^8.17.1",
+    "prettier": "^3.2.5",
+    "tsc": "^2.0.4",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
