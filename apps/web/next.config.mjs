@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@ecom/ui'],
+  transpilePackages: ['@ecom/ui', '@ecom/database'],
 }
 
 export default nextConfig

@@ -9,6 +9,7 @@
         "serviceworker",
         "trivago",
         "trpc",
+        "tsup",
         "turbopack",
         "Turborepo",
         "typecheck"

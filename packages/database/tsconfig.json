@@ -1,0 +1,8 @@
+{
+  "extends": "@ecom/config/typescript/server.json",
+  "compilerOptions": {
+    "paths": { "@ecom/config/*": ["../config/*"] }
+  },
+  "include": ["src/", "prisma", "tsup.config.ts"],
+  "exclude": ["**/node_modules", "**/.*/"]
+}

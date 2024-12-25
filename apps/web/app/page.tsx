@@ -1,4 +1,4 @@
-import { Button } from '@ecom/ui/components/button'
+import { Button } from '@ecom/ui/components/Button'
 
 export default function Page() {
   return (

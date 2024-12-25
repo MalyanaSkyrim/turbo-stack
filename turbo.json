@@ -2,8 +2,12 @@
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
   "tasks": {
+    "db:generate": {
+      "inputs": ["prisma/schema.prisma"],
+      "cache": false
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "db:generate", "^db:generate"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
@@ -11,11 +15,15 @@
       "dependsOn": ["^lint"]
     },
     "typecheck": {
-      "dependsOn": ["^typecheck"]
+      "dependsOn": ["^typecheck", "^db:generate"]
     },
     "dev": {
-      "cache": false,
-      "persistent": true
+      "dependsOn": ["^db:generate", "^build"],
+      "persistent": true,
+      "cache": false
+    },
+    "start": {
+      "cache": false
     }
   }
 }

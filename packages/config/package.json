@@ -12,7 +12,8 @@
     "./eslint/react-internal": "./eslint/react-internal",
     "./typescript/base.json": "./typescript/base.json",
     "./typescript/nextjs.json": "./typescript/nextjs.json",
-    "./typescript/react-library.json": "./typescript/react-library.json"
+    "./typescript/react-library.json": "./typescript/react-library.json",
+    "./typescript/server.json": "./typescript/server.json"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
