@@ -8,7 +8,7 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "spell": "yarn cspell lint --no-progress --relative",
+    "spell": "cspell lint --no-progress --relative",
     "typecheck": "turbo typecheck",
     "postinstall": "yarn manypkg check",
     "with-env": "dotenv -e .env --",
@@ -21,6 +21,14 @@
     "db:seed": "yarn with-env yarn build --filter @ecom/database --filter @ecom/auth-kit && yarn workspace @ecom/database db:seed",
     "clean": "find . -name node_modules -o -name build -o -name .next -o -name .turbo -o -name dist -o -name .docusaurus -o -name generated -type d -prune | xargs rm -rf"
   },
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "devDependencies": {
     "@cspell/dict-fr-fr": "^2.2.5",
     "@ecom/config": "*",
@@ -35,13 +43,5 @@
     "tsx": "^4.19.2",
     "turbo": "^2.3.3",
     "typescript": "^5.7.2"
-  },
-  "packageManager": "yarn@1.22.22",
-  "engines": {
-    "node": ">=22"
-  },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  }
 }

@@ -20,11 +20,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "composite": true,
-    
+    "composite": true
 
     /* Additional options */
     // "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "../../packages/ui/src/*","./tailwind.config.ts"]
+  "include": ["src", "../../packages/ui/src/*", "./tailwind.config.ts"]
 }

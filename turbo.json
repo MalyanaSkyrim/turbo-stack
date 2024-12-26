@@ -14,9 +14,7 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
-    "typecheck": {
-      "dependsOn": ["^typecheck", "^db:generate"]
-    },
+    "typecheck": {},
     "dev": {
       "dependsOn": ["^db:generate", "^build"],
       "persistent": true,
