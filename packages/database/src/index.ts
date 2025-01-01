@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 
+import { env } from './env'
 import { createDbInstance } from './extensions'
 
 declare global {
@@ -10,7 +11,7 @@ declare global {
 
 let db: PrismaClient
 
-if (process.env.NODE_ENV === 'production') {
+if (env.NODE_ENV === 'production') {
   db = createDbInstance()
 } else {
   if (!global.db) {

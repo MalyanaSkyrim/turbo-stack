@@ -3,6 +3,6 @@
   "compilerOptions": {
     "paths": { "@ecom/config/*": ["../config/*"] }
   },
-  "include": ["src/", "prisma", "tsup.config.ts"],
+  "include": ["src/", "prisma", "tsup.config.ts", "src/env.mjs"],
   "exclude": ["**/node_modules", "**/.*/"]
 }
