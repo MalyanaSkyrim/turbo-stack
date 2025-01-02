@@ -7,3 +7,4 @@ build
 src
 tsconfig.json
 tsup.config.ts
+eslint.config.js

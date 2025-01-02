@@ -1,6 +1,6 @@
 {
   "name": "turbo-stack",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Turbo-stack CLI is a command-line tool to bootstrap a preconfigured monorepo architecture optimized for modern development workflows",
   "main": "build/index.cjs",
   "module": "build/index.js",
@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "chalk": "^5.4.1",
+    "commander": "^13.0.0",
+    "inquirer": "^12.3.0",
     "ora": "^8.1.1"
   }
 }
