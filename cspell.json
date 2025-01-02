@@ -2,11 +2,12 @@
   "version": "0.2",
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "words": [
-    "MALYANA",
     "ecom",
     "ianvs",
+    "MALYANA",
     "manypkg",
     "nextjs",
+    "preconfigured",
     "serviceworker",
     "shadcn",
     "trivago",
@@ -58,6 +59,11 @@
       "language": "en,fr"
     }
   ],
-  "import": ["@cspell/dict-fr-fr/cspell-ext.json"],
-  "ignorePaths": ["node_modules", "**/CHANGELOG.md"]
+  "import": [
+    "@cspell/dict-fr-fr/cspell-ext.json"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "**/CHANGELOG.md"
+  ]
 }
