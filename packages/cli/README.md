@@ -150,43 +150,14 @@ Shared configurations for the monorepo:
 
 3. Start development servers:
 
-   - Web app:
+   - To run all apps:
      ```bash
-     yarn dev:web
+     yarn dev
      ```
-   - Workshop:
+   - To run a specific app:
      ```bash
-     yarn dev:workshop
+     yarn dev --filter=appName
      ```
-
----
-
-## Documentation for Generated Files
-
-### **Next.js App (Web)**
-
-- **Features**: Internationalization using `next-intl`.
-- **Start**: `yarn dev:web`.
-
-### **Storybook App (Workshop)**
-
-- **Features**: Component testing and documentation.
-- **Start**: `yarn dev:workshop`.
-
-### **UI Package**
-
-- **Technology**: Optionally based on ShadCN.
-- **Usage**: Import components in the web app or workshop.
-
-### **Database Package**
-
-- **Technology**: Prisma.
-- **Usage**: Shared ORM for all apps in the monorepo.
-
-### **Config Package**
-
-- **Technology**: Centralized ESLint, Prettier, and TypeScript configurations.
-- **Usage**: Automatically applied across the monorepo.
 
 ---
 

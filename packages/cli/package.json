@@ -1,12 +1,17 @@
 {
   "name": "turbo-stack",
   "version": "1.0.0",
-  "description": "Mono Starter CLI is a command-line tool to bootstrap a preconfigured monorepo architecture optimized for modern development workflows",
+  "description": "Turbo-stack CLI is a command-line tool to bootstrap a preconfigured monorepo architecture optimized for modern development workflows",
   "main": "build/index.cjs",
   "module": "build/index.js",
   "author": "MALYANA Mohamed",
   "license": "MIT",
   "type": "module",
+  "homepage": "https://github.com/MalyanaSkyrim/turbo-stack/tree/master/packages/cli#readme",
+  "repository": "https://github.com/MalyanaSkyrim/turbo-stack",
+  "bin": {
+    "turbo-stack": "./build/index.js"
+  },
   "scripts": {
     "build": "tsup",
     "lint": "eslint .",
