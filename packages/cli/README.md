@@ -5,7 +5,7 @@
 ## Features
 
 - **TurboRepo Integration**: Efficient build system with caching and parallelization ([Learn more](https://turbo.build/repo)).
-- **i still**
+- **Apps**
   - **Web**: A Next.js app preconfigured for building modern web applications ([Learn more](https://nextjs.org/)).
   - **Workshop**: A Storybook app using Vite and React ([Learn more](https://storybook.js.org/)).
 - **Reusable Packages**:
@@ -76,7 +76,7 @@ Next.js application preconfigured with `next-intl` for handling translations and
 
 #### **apps/workshop**
 
-Storybook application built with Vite and React to showcase and test reusable components ([Learn more](https://storybook.js.org/)).
+Storybook application built with Vite and React to showcase and test reusable components exist in package `ui`. ([Learn more](https://storybook.js.org/)).
 
 #### **packages/ui**
 
@@ -116,39 +116,21 @@ Shared configurations for the monorepo:
 
 ## Usage
 
-### Installation
+### Getting Started
 
-1. Install the CLI globally:
-
-   ```bash
-   npm install -g mono-starter
-   ```
-
-2. Create a new monorepo:
+1. Create a new monorepo:
 
    ```bash
-   npx mono-starter init
+   npx turbo-stack init
    ```
 
-3. Follow the prompts to set up the project.
-
-### Post-Initialization Steps
-
-1. Install dependencies:
+2. Navigate to your project directory:
 
    ```bash
-   yarn install
+   cd my-monorepo
    ```
 
-2. Run the preconfigured CI workflow locally:
-
-   ```bash
-   yarn lint
-   yarn type-check
-   yarn build
-   ```
-
-3. Start development servers:
+3. Start the development servers:
 
    - To run all apps:
      ```bash
