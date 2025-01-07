@@ -4,13 +4,14 @@ import * as path from 'path'
 
 const foldersToSkip = [
   'cockroach-data',
-  'cli',
   'node_modules',
   'dist',
   'build',
   '.next',
   '.git',
 ]
+
+const allowedFilesExtensions = ['.tsx', '.ts', '.js', '.mjs', '.json', '.md']
 
 const updatePackageJsonName = async (
   destinationPath: string,
@@ -60,9 +61,12 @@ const replaceWorkspaceInFiles = async (
     if (entry.isDirectory()) {
       await replaceWorkspaceInFiles(entryPath, workspace)
     } else {
-      const content = await fs.readFile(entryPath, 'utf8')
-      const modifiedContent = content.replace(/@ecom\//g, `${workspace}/`)
-      await fs.writeFile(entryPath, modifiedContent, 'utf8')
+      const fileExtension = path.extname(entryPath)
+      if (allowedFilesExtensions.includes(fileExtension)) {
+        const content = await fs.readFile(entryPath, 'utf8')
+        const modifiedContent = content.replace(/@ecom/g, `${workspace}`)
+        await fs.writeFile(entryPath, modifiedContent, 'utf8')
+      }
     }
   }
 }
