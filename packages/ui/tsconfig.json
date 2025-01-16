@@ -1,10 +1,10 @@
 {
-  "extends": "@ecom/config/typescript/react-library.json",
+  "extends": "@repo/config/typescript/react-library.json",
   "compilerOptions": {
     //"outDir": "dist"
     "baseUrl": ".",
     "paths": {
-      "@ecom/ui/*": ["./src/*"]
+      "@repo/ui/*": ["./src/*"]
     },
     "jsx": "react"
   },

@@ -40,7 +40,7 @@ export const checkYarnVersion = async () => {
 export const installDependencies = async (destinationPath: string) => {
   const spinner = ora('Installing dependencies...').start()
   try {
-    await $`cd ${destinationPath} && yarn`
+    await $`cd ${destinationPath} && yarn --silent`
     spinner.succeed('Dependencies installed successfully')
   } catch (error) {
     if ((error as Error).message.includes('dependencies are unsorted')) {

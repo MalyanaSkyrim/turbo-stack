@@ -1,6 +1,6 @@
 import { Providers } from '@/components/providers'
 import { routing } from '@/i18n/routing'
-import '@ecom/ui/globals.css'
+import '@repo/ui/globals.css'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { Geist, Geist_Mono } from 'next/font/google'

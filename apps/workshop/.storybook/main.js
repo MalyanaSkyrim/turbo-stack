@@ -14,7 +14,7 @@ const config = {
     '../../../packages/ui/src/**/*.stories.tsx',
     // '../../../packages/ui/src/**/*.mdx',
   ],
-  // staticDirs: [path.join(path.dirname(require.resolve('@ecom/ui')), 'static')],
+  // staticDirs: [path.join(path.dirname(require.resolve('@repo/ui')), 'static')],
   addons: [
     getAbsolutePath('@storybook/addon-onboarding'),
     getAbsolutePath('@storybook/addon-essentials'),

@@ -1,5 +1,5 @@
 /** @type { import('@storybook/react').Preview } */
-import '@ecom/ui/src/styles/globals.css'
+import '@repo/ui/src/styles/globals.css'
 
 const preview = {
   parameters: {

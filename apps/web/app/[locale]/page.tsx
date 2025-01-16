@@ -1,5 +1,5 @@
 import { Link } from '@/i18n/routing'
-import { Button } from '@ecom/ui/components/Button'
+import { Button } from '@repo/ui/components/Button'
 import { useTranslations } from 'next-intl'
 
 export default function HomePage() {

@@ -1,5 +1,5 @@
 {
-  "name": "ecom-project",
+  "name": "monorepo-starter",
   "version": "0.0.1",
   "private": true,
   "author": "MALYANA Mohamed",
@@ -17,9 +17,9 @@
     "db:start": "docker compose -f docker-compose.yml up -d",
     "db:generate": "yarn with-env turbo db:generate",
     "db:stop": "docker compose -f docker-compose.yml down",
-    "db:push": "yarn with-env yarn workspace @ecom/database db:push",
-    "db:migrate": "yarn with-env yarn workspace @ecom/database db:migrate",
-    "db:seed": "yarn with-env yarn build --filter @ecom/database --filter @ecom/auth-kit && yarn workspace @ecom/database db:seed",
+    "db:push": "yarn with-env yarn workspace @repo/database db:push",
+    "db:migrate": "yarn with-env yarn workspace @repo/database db:migrate",
+    "db:seed": "yarn with-env yarn build --filter @repo/database --filter @repo/auth-kit && yarn workspace @repo/database db:seed",
     "clean": "find . -name node_modules -o -name build -o -name .next -o -name .turbo -o -name dist -o -name .docusaurus -o -name generated -type d -prune | xargs rm -rf"
   },
   "packageManager": "yarn@1.22.22",
@@ -32,8 +32,8 @@
   ],
   "devDependencies": {
     "@cspell/dict-fr-fr": "^2.2.5",
-    "@ecom/config": "*",
     "@manypkg/cli": "^0.23.0",
+    "@repo/config": "*",
     "@t3-oss/env-core": "^0.6.0",
     "@t3-oss/env-nextjs": "^0.6.0",
     "@types/node": "^22.9.0",

@@ -11,10 +11,10 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@ecom/ui/components",
-    "utils": "@ecom/ui/lib/utils",
-    "hooks": "@ecom/ui/hooks",
-    "lib": "@ecom/ui/lib",
-    "ui": "@ecom/ui/components"
+    "components": "@repo/ui/components",
+    "utils": "@repo/ui/lib/utils",
+    "hooks": "@repo/ui/hooks",
+    "lib": "@repo/ui/lib",
+    "ui": "@repo/ui/components"
   }
 }

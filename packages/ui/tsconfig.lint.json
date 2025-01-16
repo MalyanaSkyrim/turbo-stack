@@ -1,5 +1,5 @@
 {
-  "extends": "@ecom/config/typescript/react-library.json",
+  "extends": "@repo/config/typescript/react-library.json",
   "compilerOptions": {
     "outDir": "dist"
   },

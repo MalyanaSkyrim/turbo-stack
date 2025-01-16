@@ -10,7 +10,7 @@ import {
   checkYarnVersion,
   installDependencies,
 } from './utils/node'
-import { applyRepoModifications } from './utils/repo'
+import { applyRepoModifications, DEFAULT_DESTINATION } from './utils/repo'
 
 export const initCommand = async () => {
   await checkNodeVersion()
@@ -21,7 +21,7 @@ export const initCommand = async () => {
       type: 'input',
       name: 'destination',
       message: 'Where would you like to create your monorepo?',
-      default: 'monorepo-starter',
+      default: DEFAULT_DESTINATION,
     },
     {
       type: 'input',

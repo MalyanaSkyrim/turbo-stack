@@ -2,6 +2,9 @@ import * as fs from 'fs/promises'
 import ora from 'ora'
 import * as path from 'path'
 
+const DEFAULT_WORKSPACE = '@repo'
+export const DEFAULT_DESTINATION = 'monorepo-starter'
+
 const foldersToSkip = [
   'cockroach-data',
   'node_modules',
@@ -17,6 +20,7 @@ const updatePackageJsonName = async (
   destinationPath: string,
   newName: string,
 ) => {
+  if (destinationPath === DEFAULT_DESTINATION) return
   const packageJsonPath = path.join(destinationPath, 'package.json')
   const packageJson = JSON.parse(await fs.readFile(packageJsonPath, 'utf8'))
   packageJson.name = newName
@@ -53,18 +57,25 @@ const replaceWorkspaceInFiles = async (
   destinationPath: string,
   workspace: string,
 ) => {
+  const validWorkspace =
+    workspace.charAt(0) === '@' ? workspace : `@${workspace}`
+
+  if (validWorkspace === DEFAULT_WORKSPACE) return
   const entries = await fs.readdir(destinationPath, { withFileTypes: true })
 
   for (let entry of entries) {
     if (foldersToSkip.includes(entry.name)) continue
     const entryPath = path.join(destinationPath, entry.name)
     if (entry.isDirectory()) {
-      await replaceWorkspaceInFiles(entryPath, workspace)
+      await replaceWorkspaceInFiles(entryPath, validWorkspace)
     } else {
       const fileExtension = path.extname(entryPath)
       if (allowedFilesExtensions.includes(fileExtension)) {
         const content = await fs.readFile(entryPath, 'utf8')
-        const modifiedContent = content.replace(/@ecom/g, `${workspace}`)
+        const modifiedContent = content.replace(
+          new RegExp(`${DEFAULT_WORKSPACE}`, 'g'),
+          `${validWorkspace}`,
+        )
         await fs.writeFile(entryPath, modifiedContent, 'utf8')
       }
     }

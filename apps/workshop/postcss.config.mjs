@@ -1,1 +1,1 @@
-export { default } from '@ecom/ui/postcss.config.mjs'
+export { default } from '@repo/ui/postcss.config.mjs'

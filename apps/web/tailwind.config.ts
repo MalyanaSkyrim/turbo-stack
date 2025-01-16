@@ -1,1 +1,1 @@
-export * from '@ecom/ui/tailwind.config'
+export * from '@repo/ui/tailwind.config'

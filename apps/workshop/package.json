@@ -1,5 +1,5 @@
 {
-  "name": "@ecom/workshop",
+  "name": "@repo/workshop",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +13,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ecom/ui": "*"
+    "@repo/ui": "*"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",

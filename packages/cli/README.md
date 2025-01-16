@@ -1,153 +1,324 @@
 # Turbo Stack CLI
 
-**Turbo Stack CLI** is a command-line tool to bootstrap a preconfigured monorepo architecture optimized for modern development workflows. It simplifies creating a scalable and consistent development environment.
+**Turbo Stack CLI** is a command-line tool to bootstrap a preconfigured monorepo architecture optimized for modern development workflows. It provides a robust foundation for building scalable applications with a focus on developer experience and code maintainability.
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Environment Setup](#environment-setup)
+- [Getting Started](#getting-started)
+- [Development Workflow](#development-workflow)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
-- **TurboRepo Integration**: Efficient build system with caching and parallelization ([Learn more](https://turbo.build/repo)).
+- **[TurboRepo](https://turbo.build/repo) Integration**: A high-performance build system that leverages intelligent caching and parallel execution to significantly reduce build times. It automatically tracks dependencies between packages and apps to ensure efficient rebuilds.
+
 - **Apps**
-  - **Web**: A Next.js app preconfigured for building modern web applications ([Learn more](https://nextjs.org/)).
-  - **Workshop**: A Storybook app using Vite and React ([Learn more](https://storybook.js.org/)).
+
+  - **[Next.js](https://nextjs.org/) Web Application**: A feature-rich React framework application preconfigured with:
+    - Server-side rendering
+    - API routes
+    - File-based routing
+    - Built-in optimization features
+  - **[Storybook](https://storybook.js.org/) Workshop**: An isolated UI development environment that allows you to:
+    - Develop components in isolation
+    - Test edge cases easily
+    - Document component usage
+    - Share components across teams
+
 - **Reusable Packages**:
-  - **UI**: Optionally based on ShadCN UI ([Learn more](https://shadcn.dev/)).
-  - **Database**: Prisma ORM setup with TSUP for building ([Learn more about Prisma](https://www.prisma.io/) | [Learn more about TSUP](https://tsup.egoist.dev/)).
-  - **Config**: Centralized configuration for Prettier ([Learn more](https://prettier.io/)), ESLint ([Learn more](https://eslint.org/)), and TypeScript ([Learn more](https://www.typescriptlang.org/)).
-- **Continuous Integration**: Predefined GitHub Actions workflow to ensure code quality ([Learn more](https://docs.github.com/en/actions)).
-- **Developer Tooling**: VSCode settings and various utility configurations.
 
----
+  - **UI Package**: A collection of reusable UI components optionally based on [ShadCN UI](https://shadcn.dev/), providing:
+    - Consistent design language
+    - Accessibility-first components
+    - Customizable theming
+    - Type-safe props
+  - **Database Package**: [Prisma](https://www.prisma.io/) ORM setup with [TSUP](https://tsup.egoist.dev/) for building, offering:
+    - Type-safe database queries
+    - Auto-generated migrations
+    - Database schema management
+    - Efficient TypeScript/JavaScript compilation
+  - **Config Package**: Centralized configuration for:
+    - [Prettier](https://prettier.io/) - Consistent code formatting
+    - [ESLint](https://eslint.org/) - Code quality enforcement
+    - [TypeScript](https://www.typescriptlang.org/) - Type safety and developer tooling
 
-## Generated Project Structure
+- **Continuous Integration**: Predefined [GitHub Actions](https://github.com/features/actions) workflow that:
+
+  - Validates code quality
+  - Ensures type safety
+  - Verifies build integrity
+  - Maintains consistent coding standards
+
+- **Developer Tooling**:
+  - [VSCode](https://code.visualstudio.com/) settings for consistent development experience
+  - Integrated debugging configurations
+  - Recommended extensions
+
+## Tech Stack
+
+### Core Technologies
+
+- **[TurboRepo](https://turbo.build/repo)**: An incremental bundler and build system optimized for JavaScript and TypeScript monorepos. It handles the complexity of managing multiple packages and applications within a single repository.
+
+- **[Next.js](https://nextjs.org/)**: A powerful React framework that provides a robust foundation for building web applications with features like server-side rendering, static site generation, and API routes.
+
+- **[TypeScript](https://www.typescriptlang.org/)**: A typed superset of JavaScript that enhances developer productivity through better tooling and error catching.
+
+- **[Prisma](https://www.prisma.io/)**: A modern database toolkit that provides a type-safe and intuitive way to interact with your database through generated queries.
+
+- **[Storybook](https://storybook.js.org/)**: A UI development environment for building, documenting, and testing components in isolation.
+
+### Environment Management
+
+- **[@t3-oss/env-core](https://github.com/t3-oss/t3-env)**: A library for managing type-safe environment variables across your entire monorepo.
+
+- **[@t3-oss/env-nextjs](https://github.com/t3-oss/t3-env)**: Next.js-specific environment variable validation and typing, ensuring type safety for environment variables in your Next.js applications.
+
+### Development Tools
+
+- **[ESLint](https://eslint.org/)**: A pluggable linting utility that helps maintain code quality and consistency.
+
+- **[Prettier](https://prettier.io/)**: An opinionated code formatter that ensures consistent code style across your project.
+
+- **[cspell](https://cspell.org/)**: A spell checker for code that helps catch spelling errors in identifiers, strings, and comments.
+
+## Project Structure
 
 ```
 .
-├── .github                   # Contains CI workflows.
-│   └── workflows             # Predefined GitHub Actions.
-├── .turbo                    # TurboRepo configuration.
-│   ├── cache                 # Cache directory for TurboRepo builds.
-│   ├── cookies               # TurboRepo state management.
-│   └── daemon                # TurboRepo daemon configurations.
-├── .vscode                   # VSCode workspace configurations.
-│   └── settings.json         # Settings for consistent development experience.
-├── apps                      # Applications in the monorepo.
-│   ├── web                   # Next.js app configured with next-intl.
-│   └── workshop              # Storybook app using Vite and React.
-├── packages                  # Shared libraries and configurations.
-│   ├── config                # Centralized ESLint, Prettier, and TypeScript configs.
-│   ├── database              # Prisma ORM setup with TSUP packaging.
-│   └── ui                    # Optionally based on ShadCN reusable UI components.
-├── .env                      # Environment variables.
-├── .eslintrc.js              # ESLint configuration.
-├── .gitignore                # Files and directories ignored by Git.
-├── .npmrc                    # npm settings.
-├── .prettierignore           # Files and directories ignored by Prettier.
-├── .prettierrc.js            # Prettier configuration.
-├── README.md                 # Project documentation.
-├── cspell.json               # Spell checker configuration ([Learn more](https://cspell.org/)).
-├── docker-compose.yml        # Docker services configuration.
-├── package.json              # Monorepo's package manifest.
-├── tsconfig.json             # Base TypeScript configuration.
-├── turbo.json                # TurboRepo configuration.
-└── yarn.lock                 # Yarn dependency lockfile.
+├── .github/                  # CI workflows
+├── .turbo/                   # TurboRepo configuration
+├── .vscode/                  # VSCode settings
+├── apps/
+│   ├── web/                 # Next.js application
+│   └── workshop/            # Storybook application
+├── packages/
+│   ├── config/             # Shared configurations
+│   ├── database/           # Prisma setup
+│   └── ui/                 # UI components
+├── docker-compose.yml       # Docker services configuration
+├── cockroach-data/         # CockroachDB data directory
+└── [Configuration Files]
 ```
 
-### Folder and File Descriptions
+### Key Directories and Files
 
-#### **.github/workflows**
+#### `.github/workflows`
 
-Contains the CI workflows. The preconfigured workflow checks:
+Contains CI workflows that perform:
 
-1. Spelling (using `cspell`).
-2. Linting (using ESLint).
-3. Type-checking (using TypeScript).
-4. Build integrity (ensures packages/apps build successfully).
+- Spell checking using cspell to maintain code quality
+- Linting with ESLint to ensure code consistency
+- Type checking with TypeScript to prevent type-related errors
+- Build verification to ensure all packages and apps build successfully
 
-#### **.turbo**
+#### `apps/web`
 
-TurboRepo's configuration folder, managing caching and execution contexts.
+Next.js application featuring:
 
-#### **.vscode/settings.json**
+- Type-safe environment variables using @t3-oss/env-nextjs
+- Integration with shared UI components
+- Scalable architecture for enterprise applications
+- Performance optimizations out of the box
 
-Default Visual Studio Code workspace settings for a consistent developer experience.
+#### `apps/workshop`
 
-#### **apps/web**
+Storybook application providing:
 
-Next.js application preconfigured with `next-intl` for handling translations and localization efficiently ([Learn more about next-intl](https://github.com/amannn/next-intl)).
+- Isolated component development environment
+- Interactive component testing
+- Comprehensive documentation
+- Visual regression testing capabilities
 
-#### **apps/workshop**
+#### `packages/`
 
-Storybook application built with Vite and React to showcase and test reusable components exist in package `ui`. ([Learn more](https://storybook.js.org/)).
+Shared packages containing:
 
-#### **packages/ui**
+- `ui`: Reusable component library with optional ShadCN UI integration
+- `database`: Prisma ORM configuration and database utilities
+- `config`: Centralized tooling configuration for consistent development experience
 
-Reusable UI components optionally based on ShadCN UI ([Learn more](https://shadcn.dev/)).
+## Environment Setup
 
-- Includes foundational components like `Button`, `Input`, `Select`, and more.
+### Development Services
 
-#### **packages/database**
+The project uses [Docker](https://www.docker.com/) to manage development services, including the database. The configuration is defined in `docker-compose.yml`:
 
-Prisma ORM configuration for managing database queries ([Learn more](https://www.prisma.io/)).
+```yaml
+services:
+  cockroach:
+    container_name: monorepo-starter-cockroach-dev
+    image: cockroachdb/cockroach:latest
+    restart: always
+    ports:
+      - '26258:26257'
+      - '8082:8080'
+    command: start-single-node --insecure
+    volumes:
+      - '${PWD}/cockroach-data/crdb:/cockroach/cockroach-data'
+```
 
-- Built with TSUP for packaging.
+Managing services is simple with the provided scripts:
 
-#### **packages/config**
+```bash
+# Start the database and other services
+yarn db:start
 
-Shared configurations for the monorepo:
+# Stop all services
+yarn db:stop
+```
 
-- Prettier
-- ESLint
-- TypeScript
+Service access points:
 
-#### **Root Files**
+- CockroachDB UI: http://localhost:8082
+- Database port: 26258
 
-- `.env`: Environment variables.
-- `.eslintrc.js`: ESLint configuration file.
-- `.gitignore`: Ignored files for version control.
-- `.npmrc`: npm settings file.
-- `.prettierignore` and `.prettierrc.js`: Prettier configurations.
-- `cspell.json`: Spell checking settings ([Learn more](https://cspell.org/)).
-- `docker-compose.yml`: Configuration for running services with Docker.
-- `package.json`: Monorepo's package manifest.
-- `tsconfig.json`: Base TypeScript configuration.
-- `turbo.json`: TurboRepo configuration.
-- `yarn.lock`: Yarn dependency lockfile.
+You can extend the `docker-compose.yml` to include additional services needed for your development environment, such as Redis, Elasticsearch, or other databases.
 
----
+### Environment Variables
 
-## Usage
+The project uses [t3-env](https://github.com/t3-oss/t3-env) for type-safe environment variables. Create a `.env` file in the root directory with the following variables:
 
-### Getting Started
+```bash
+# Database connection URL
+DATABASE_URL="postgresql://..."
+
+# Add other variables as needed
+```
+
+The type safety is enforced through schema definitions:
+
+```typescript
+// Schema definition example
+import { createEnv } from '@t3-oss/env-core'
+
+export const env = createEnv({
+  server: {
+    DATABASE_URL: z.string().url(),
+  },
+  runtimeEnv: process.env,
+})
+```
+
+For Next.js applications, you can use [@t3-oss/env-nextjs](https://github.com/t3-oss/t3-env) which provides additional Next.js-specific validations:
+
+```typescript
+// apps/web/env.ts
+import { createEnv } from '@t3-oss/env-nextjs'
+
+export const env = createEnv({
+  // ... configuration
+})
+```
+
+## Getting Started
 
 1. Create a new monorepo:
 
    ```bash
-   npx turbo-stack init
+   npx monorepo-starter init
    ```
 
-2. Navigate to your project directory:
+2. Navigate to project directory:
 
    ```bash
    cd my-monorepo
    ```
 
-3. Start the development servers:
+3. Install dependencies:
 
-   - To run all apps:
-     ```bash
-     yarn dev
-     ```
-   - To run a specific app:
-     ```bash
-     yarn dev --filter=appName
-     ```
+   ```bash
+   yarn install
+   ```
 
----
+4. Set up environment variables:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+5. Start development servers:
+   ```bash
+   yarn dev
+   ```
+
+## Development Workflow
+
+### Prerequisites
+
+- Node.js version >= 22
+- Yarn version >= 1.22
+- [Docker](https://www.docker.com/) installed on your machine
+- [Docker Compose](https://docs.docker.com/compose/) (usually included with Docker Desktop)
+
+### Starting Development Environment
+
+1. Start the database:
+
+   ```bash
+   yarn db:start
+   ```
+
+2. Start the development servers:
+
+   ```bash
+   # Start all apps
+   yarn dev
+
+   # Or start a specific app
+   yarn dev --filter=web
+   yarn dev --filter=workshop
+   ```
+
+3. Access services:
+   - CockroachDB UI: http://localhost:8082
+   - Database port: 26258
+
+### Building Packages
+
+Build all packages and applications:
+
+```bash
+yarn build
+```
+
+This command:
+
+- Compiles TypeScript code
+- Bundles assets
+- Generates necessary files
+- Respects dependencies between packages
+
+### Type Checking
+
+Run type checking across the entire monorepo:
+
+```bash
+yarn typecheck
+```
+
+### Linting
+
+Lint all files in the monorepo:
+
+```bash
+yarn lint
+```
 
 ## Contributing
 
-Feel free to contribute by submitting issues or pull requests. Ensure all workflows pass locally before submitting.
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/my-feature`
+3. Commit your changes: `git commit -am 'Add my feature'`
+4. Push to the branch: `git push origin feature/my-feature`
+5. Submit a pull request
 
----
+Ensure all workflows pass locally before submitting.
 
 ## License
 

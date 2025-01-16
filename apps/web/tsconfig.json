@@ -1,10 +1,10 @@
 {
-  "extends": "@ecom/config/typescript/nextjs.json",
+  "extends": "@repo/config/typescript/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@ecom/ui/*": ["../../packages/ui/src/*"]
+      "@repo/ui/*": ["../../packages/ui/src/*"]
     },
     "plugins": [
       {
