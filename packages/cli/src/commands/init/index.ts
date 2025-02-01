@@ -4,7 +4,7 @@ import inquirer from 'inquirer'
 import * as path from 'path'
 
 import { repository } from '../../../package.json'
-import { cloneRepo } from './utils/git'
+import { downloadRepository, initializeRepository } from './utils/git'
 import {
   checkNodeVersion,
   checkYarnVersion,
@@ -42,9 +42,10 @@ export const initCommand = async () => {
   }
 
   try {
-    await cloneRepo(repository, destinationPath)
+    await downloadRepository(repository, destinationPath)
     await applyRepoModifications(destinationPath, workspace)
     await installDependencies(destinationPath)
+    await initializeRepository(destinationPath)
     console.log('\n' + chalk.hex('#35A4FB')('Happy hacking! 😊'))
   } catch (error) {
     console.log(chalk.red('Failed to initialize monorepo'))
